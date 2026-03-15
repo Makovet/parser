@@ -6,6 +6,7 @@ from pathlib import Path
 from qms_doc_parser.classifiers.style_classifier import ClassificationInput, StyleClassifier
 from qms_doc_parser.extractors.block_iterator import iter_block_items
 from qms_doc_parser.io.docx_loader import load_docx
+from qms_doc_parser.parsers.note_parser import apply_note_grouping
 from qms_doc_parser.parsers.table_parser import parse_table
 from qms_doc_parser.models.parser_models import (
     BlockType,
@@ -104,6 +105,8 @@ def parse_docx_to_document(input_path: str | Path, registry_path: str | Path) ->
             block = section_tracker.apply(block)
             blocks.append(block)
 
+    apply_note_grouping(blocks)
+
     source = SourceMeta(
         file_name=input_path.name,
         file_type="docx",
@@ -142,5 +145,37 @@ def _build_summary(blocks: list[ParserBlock]) -> StructureSummary:
         total_appendix_sections=sum(1 for b in blocks if b.block_type == BlockType.appendix_heading),
         total_figures=sum(1 for b in blocks if b.block_type == BlockType.figure),
         total_formulas=sum(1 for b in blocks if b.block_type == BlockType.formula),
-        total_notes=sum(1 for b in blocks if b.block_type == BlockType.note_like),
+        total_notes=_count_logical_notes(blocks),
     )
+
+def _count_logical_notes(blocks: list[ParserBlock]) -> int:
+    counted_group_ids: set[str] = set()
+    total = 0
+
+    for block in blocks:
+        if block.block_type in {BlockType.note_label, BlockType.note_text}:
+            metadata = getattr(block, "metadata", None)
+            if isinstance(metadata, dict):
+                note_group_id = metadata.get("note_group_id")
+                is_orphan = metadata.get("is_orphan")
+            else:
+                note_group_id = None
+                is_orphan = None
+
+            if isinstance(note_group_id, str) and note_group_id:
+                if note_group_id not in counted_group_ids:
+                    counted_group_ids.add(note_group_id)
+                    total += 1
+                continue
+
+            if is_orphan is True:
+                total += 1
+                continue
+
+            total += 1
+            continue
+
+        if block.block_type == BlockType.note_like:
+            total += 1
+
+    return total
