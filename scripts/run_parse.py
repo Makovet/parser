@@ -1,9 +1,34 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 from pathlib import Path
+import sys
 
-from qms_doc_parser.main import parse_document
+
+def _ensure_src_on_path() -> None:
+    """Allow running CLI without editable install (src layout)."""
+    project_root = Path(__file__).resolve().parents[1]
+    src_path = project_root / "src"
+    src_path_str = str(src_path)
+    if src_path_str not in sys.path:
+        sys.path.insert(0, src_path_str)
+
+
+_ensure_src_on_path()
+
+
+def _missing_dependencies() -> list[str]:
+    required_modules = {
+        "pydantic": "pydantic>=2.6.0",
+        "yaml": "PyYAML>=6.0.1",
+        "docx": "python-docx>=1.1.0",
+    }
+    missing: list[str] = []
+    for module_name, package_name in required_modules.items():
+        if importlib.util.find_spec(module_name) is None:
+            missing.append(package_name)
+    return missing
 
 
 def main() -> None:
@@ -21,6 +46,17 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    missing = _missing_dependencies()
+    if missing:
+        missing_list = ", ".join(missing)
+        raise SystemExit(
+            "Missing runtime dependencies: "
+            f"{missing_list}. Install them with `python -m pip install -e .` "
+            "or `python -m pip install pydantic PyYAML python-docx`."
+        )
+
+    from qms_doc_parser.main import parse_document
 
     input_path = Path(args.input_docx)
     output_path = Path(args.output) if args.output else Path("data/output") / f"{input_path.stem}.json"
