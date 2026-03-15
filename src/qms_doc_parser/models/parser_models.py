@@ -37,6 +37,8 @@ class BlockType(str, Enum):
     formula = "formula"
     formula_number = "formula_number"
     formula_explanation = "formula_explanation"
+    note_label = "note_label"
+    note_text = "note_text"
     note_like = "note_like"
     bibliography_item = "bibliography_item"
     toc_item = "toc_item"
