@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: qms-doc-parser
+Version: 0.1.0
+Summary: Template-aware DOCX parser for QMS documents
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.6.0
+Requires-Dist: PyYAML>=6.0.1
+Requires-Dist: python-docx>=1.1.0

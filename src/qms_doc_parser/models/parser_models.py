@@ -1,0 +1,254 @@
+from __future__ import annotations
+
+from datetime import datetime
+from enum import Enum
+from typing import List, Optional
+
+from pydantic import BaseModel, Field, ConfigDict
+
+
+class DocumentZone(str, Enum):
+    title_page = "title_page"
+    control_sheet = "control_sheet"
+    toc = "toc"
+    main_body = "main_body"
+    appendix = "appendix"
+    bibliography = "bibliography"
+    template_instruction = "template_instruction"
+    a3_template_section = "a3_template_section"
+    footer_or_header = "footer_or_header"
+    unknown_zone = "unknown_zone"
+
+
+class BlockType(str, Enum):
+    heading = "heading"
+    appendix_heading = "appendix_heading"
+    paragraph = "paragraph"
+    list_item = "list_item"
+    table = "table"
+    table_label = "table_label"
+    table_caption = "table_caption"
+    table_header_cell = "table_header_cell"
+    table_stub_cell = "table_stub_cell"
+    table_body_cell = "table_body_cell"
+    figure = "figure"
+    figure_caption = "figure_caption"
+    figure_explanation = "figure_explanation"
+    formula = "formula"
+    formula_number = "formula_number"
+    formula_explanation = "formula_explanation"
+    note_like = "note_like"
+    bibliography_item = "bibliography_item"
+    toc_item = "toc_item"
+    title_meta = "title_meta"
+    code_block = "code_block"
+    code_inline = "code_inline"
+    template_instruction = "template_instruction"
+    empty = "empty"
+    unknown = "unknown"
+
+
+class ListType(str, Enum):
+    numbered = "numbered"
+    bulleted = "bulleted"
+    lettered = "lettered"
+    unknown = "unknown"
+
+
+class StyleFlags(BaseModel):
+    bold: bool = False
+    italic: bool = False
+    underline: bool = False
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class IndentInfo(BaseModel):
+    left: Optional[int] = None
+    first_line: Optional[int] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class BlockFlags(BaseModel):
+    is_empty: bool = False
+    is_suspicious: bool = False
+    needs_review: bool = False
+    is_template_instruction: bool = False
+    is_template_placeholder: bool = False
+    is_example_content: bool = False
+    is_front_matter: bool = False
+    is_generated_toc_entry: bool = False
+    is_header_footer_artifact: bool = False
+    is_deletable_template_content: bool = False
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class HeadingInfo(BaseModel):
+    heading_level: Optional[int] = None
+    heading_number: Optional[str] = None
+    heading_title: Optional[str] = None
+    detection_method: Optional[str] = None
+    confidence: Optional[float] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class ListInfo(BaseModel):
+    list_type: Optional[ListType] = None
+    list_marker: Optional[str] = None
+    list_level: Optional[int] = None
+    list_parent_block_id: Optional[str] = None
+    list_parent_marker: Optional[str] = None
+    list_path: List[str] = Field(default_factory=list)
+    detection_method: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class TableCellRaw(BaseModel):
+    text: Optional[str] = None
+    row_span: int = 1
+    col_span: int = 1
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class TableInfo(BaseModel):
+    table_id: Optional[str] = None
+    table_index: Optional[int] = None
+    rows_count: Optional[int] = None
+    cols_count: Optional[int] = None
+    header_row_count: Optional[int] = None
+    cells_raw: List[List[TableCellRaw]] = Field(default_factory=list)
+    cells_normalized: List[List[Optional[str]]] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class FigureInfo(BaseModel):
+    figure_id: Optional[str] = None
+    figure_index: Optional[int] = None
+    has_image: bool = False
+    caption_text: Optional[str] = None
+    caption_block_id: Optional[str] = None
+    inline_or_anchored: Optional[str] = None
+    alt_text: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class FormulaInfo(BaseModel):
+    formula_id: Optional[str] = None
+    formula_number: Optional[str] = None
+    number_block_id: Optional[str] = None
+    explanation_block_ids: List[str] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class NoteInfo(BaseModel):
+    note_type: Optional[str] = None
+    detection_method: Optional[str] = None
+    label_block_id: Optional[str] = None
+    text_block_id: Optional[str] = None
+    full_text: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class SectionContext(BaseModel):
+    section_id: Optional[str] = None
+    section_title: Optional[str] = None
+    section_level: Optional[int] = None
+    section_path: List[str] = Field(default_factory=list)
+    parent_section_id: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class SourceLocation(BaseModel):
+    paragraph_index: Optional[int] = None
+    table_index: Optional[int] = None
+    row_index: Optional[int] = None
+    cell_index: Optional[int] = None
+    figure_index: Optional[int] = None
+    header_footer: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class ParserBlock(BaseModel):
+    block_id: str
+    block_order: int
+    document_zone: DocumentZone = DocumentZone.unknown_zone
+    block_type: BlockType
+    block_subtype: Optional[str] = None
+
+    raw_text: Optional[str] = None
+    normalized_text: Optional[str] = None
+    source_style: Optional[str] = None
+
+    style_flags: Optional[StyleFlags] = None
+    indent: Optional[IndentInfo] = None
+
+    heading_info: Optional[HeadingInfo] = None
+    list_info: Optional[ListInfo] = None
+    table_info: Optional[TableInfo] = None
+    figure_info: Optional[FigureInfo] = None
+    formula_info: Optional[FormulaInfo] = None
+    note_info: Optional[NoteInfo] = None
+
+    section_context: SectionContext = Field(default_factory=SectionContext)
+    source_location: SourceLocation = Field(default_factory=SourceLocation)
+    flags: BlockFlags = Field(default_factory=BlockFlags)
+
+    model_config = ConfigDict(extra="allow")
+
+
+class SourceMeta(BaseModel):
+    file_name: str
+    file_type: str = "docx"
+    file_hash: Optional[str] = None
+    parser_version: str
+    processed_at: datetime
+    language: str = "ru"
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class DocumentMetadata(BaseModel):
+    title: Optional[str] = None
+    document_code: Optional[str] = None
+    document_type: Optional[str] = None
+    revision: Optional[str] = None
+    confidentiality_level: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class StructureSummary(BaseModel):
+    total_blocks: int = 0
+    total_sections: int = 0
+    total_appendix_sections: int = 0
+    total_tables: int = 0
+    total_figures: int = 0
+    total_formulas: int = 0
+    total_notes: int = 0
+    total_list_items: int = 0
+    total_template_instructions: int = 0
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class ParserDocument(BaseModel):
+    document_id: str
+    template_id: str = "ADM-TEM-011_B"
+    source: SourceMeta
+    document_metadata: DocumentMetadata = Field(default_factory=DocumentMetadata)
+    structure_summary: StructureSummary = Field(default_factory=StructureSummary)
+    style_registry_used: List[str] = Field(default_factory=list)
+    blocks: List[ParserBlock] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="allow")

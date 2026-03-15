@@ -1,0 +1,301 @@
+template_id: ADM-TEM-011_B
+version: "0.3.0"
+description: "Style registry for ADM-TEM-011_B"
+
+settings:
+  classification_mode: style_first
+  fallback_to_text_patterns: true
+  detect_document_zones: true
+  keep_unknown_styles: true
+  collect_header_footer: true
+  build_composite_objects: true
+
+document_zones:
+  - title_page
+  - control_sheet
+  - toc
+  - main_body
+  - appendix
+  - bibliography
+  - template_instruction
+  - a3_template_section
+  - footer_or_header
+  - unknown_zone
+
+block_types:
+  - heading
+  - appendix_heading
+  - paragraph
+  - list_item
+  - table
+  - table_label
+  - table_caption
+  - table_header_cell
+  - table_stub_cell
+  - table_body_cell
+  - figure
+  - figure_caption
+  - figure_explanation
+  - formula
+  - formula_number
+  - formula_explanation
+  - note_like
+  - bibliography_item
+  - toc_item
+  - title_meta
+  - code_block
+  - code_inline
+  - template_instruction
+  - empty
+  - unknown
+
+style_registry:
+  "0_ИЦЖТ_Текст":
+    block_type: paragraph
+    block_subtype: main_text
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "0_ИЦЖТ_Текст_без отступа":
+    block_type: paragraph
+    block_subtype: definition_like
+    default_zone: main_body
+    semantic_hints:
+      - definition_term_candidate
+    flags: []
+
+  "0_ИЦЖТ_Для удаления":
+    block_type: template_instruction
+    block_subtype: deletable_template_comment
+    default_zone: template_instruction
+    semantic_hints: []
+    flags:
+      - is_template_instruction
+      - is_deletable_template_content
+
+  "0_ИЦЖТ_Титульный_Заголовки":
+    block_type: title_meta
+    block_subtype: title_page_meta
+    default_zone: title_page
+    semantic_hints:
+      - title_candidate
+      - document_code_candidate
+      - document_type_candidate
+      - revision_candidate
+      - confidentiality_candidate
+    flags:
+      - is_front_matter
+
+  "Оглавление 1":
+    block_type: toc_item
+    block_subtype: toc_level_1
+    default_zone: toc
+    heading_level: 1
+    semantic_hints: []
+    flags:
+      - is_generated_toc_entry
+
+  "Оглавление 2":
+    block_type: toc_item
+    block_subtype: toc_level_2
+    default_zone: toc
+    heading_level: 2
+    semantic_hints: []
+    flags:
+      - is_generated_toc_entry
+
+  "Оглавление 3":
+    block_type: toc_item
+    block_subtype: toc_level_3
+    default_zone: toc
+    heading_level: 3
+    semantic_hints: []
+    flags:
+      - is_generated_toc_entry
+
+  "Заголовок 1":
+    block_type: heading
+    block_subtype: main_heading
+    default_zone: main_body
+    heading_level: 1
+    semantic_hints: []
+    flags: []
+
+  "Заголовок 2":
+    block_type: heading
+    block_subtype: main_heading
+    default_zone: main_body
+    heading_level: 2
+    semantic_hints: []
+    flags: []
+
+  "Заголовок 3":
+    block_type: heading
+    block_subtype: main_heading
+    default_zone: main_body
+    heading_level: 3
+    semantic_hints: []
+    flags: []
+
+  "Заголовок 7;Прил. A":
+    block_type: appendix_heading
+    block_subtype: appendix_root_heading
+    default_zone: appendix
+    heading_level: 1
+    semantic_hints: []
+    flags: []
+
+  "01_ИЦЖТ_слово_ТАБЛИЦА":
+    block_type: table_label
+    block_subtype: table_word_label
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "01_ИЦЖТ_таблица_названия":
+    block_type: table_caption
+    block_subtype: table_title
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "03_ИЦЖТ_Перечисление_1 ур. = -":
+    block_type: list_item
+    block_subtype: bulleted_dash
+    default_zone: main_body
+    list_type: bulleted
+    list_level: 1
+    semantic_hints: []
+    flags: []
+
+  "03_ИЦЖТ_Перечисление_1 ур. = абв":
+    block_type: list_item
+    block_subtype: lettered
+    default_zone: main_body
+    list_type: lettered
+    list_level: 1
+    semantic_hints: []
+    flags: []
+
+  "03_ИЦЖТ_Перечисление_2 ур. = 1)":
+    block_type: list_item
+    block_subtype: numbered
+    default_zone: main_body
+    list_type: numbered
+    list_level: 2
+    semantic_hints: []
+    flags: []
+
+  "02_ИЦЖТ_рисунок":
+    block_type: figure
+    block_subtype: graphic_object
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "02_ИЦЖТ_Рисунок_название":
+    block_type: figure_caption
+    block_subtype: figure_title
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "04_ИЦЖТ_формула":
+    block_type: formula
+    block_subtype: formula_body
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "04_ИЦЖТ_формула_нумерация":
+    block_type: formula_number
+    block_subtype: formula_number
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "05_ИЦЖТ_Примечание_слово":
+    block_type: note_like
+    block_subtype: note_label
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "05_ИЦЖТ_Примечание_текст после":
+    block_type: note_like
+    block_subtype: note_text
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "10_ИЦЖТ_Код в тексте":
+    block_type: code_inline
+    block_subtype: code_inline
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "10_ИЦЖТ_Код выключной":
+    block_type: code_block
+    block_subtype: code_block
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+zone_detection_rules:
+  - name: title_page_by_title_styles
+    when_styles:
+      - "0_ИЦЖТ_Титульный_Заголовки"
+    assign_zone: title_page
+
+  - name: toc_items
+    when_styles:
+      - "Оглавление 1"
+      - "Оглавление 2"
+      - "Оглавление 3"
+    assign_zone: toc
+
+  - name: appendix_styles
+    when_styles:
+      - "Заголовок 7;Прил. A"
+    assign_zone: appendix
+
+  - name: template_instructions
+    when_text_contains:
+      - "ВНИМАНИЕ!"
+      - "Удалить при разработке документа"
+      - "Выберите один из вариантов ниже"
+      - "лишнее удалить"
+      - "Добавить ссылку на карточку документа"
+      - "Размещен только для образца расположения"
+    assign_zone: template_instruction
+
+fallback_rules:
+  heading_number_pattern: '^\s*(\d+(\.\d+){0,5})\s+.+$'
+  appendix_heading_pattern: '^\s*Приложение\s+[А-ЯA-Z]\b.*$'
+  numbered_list_pattern: '^\s*\d+[\.\)]\s+.+$'
+  lettered_list_pattern: '^\s*[A-Za-zА-Яа-я]\)\s+.+$'
+  bulleted_list_pattern: '^\s*[-•–]\s+.+$'
+  note_pattern: '^\s*(Примечание|NOTE|Пояснение|Пример)\b.*$'
+
+composite_object_rules:
+  table:
+    label_types: [table_label]
+    caption_types: [table_caption]
+    grid_anchor_types: [table]
+    note_types: [note_like]
+
+  figure:
+    object_types: [figure]
+    caption_types: [figure_caption]
+    explanation_types: [figure_explanation]
+
+  formula:
+    object_types: [formula]
+    number_types: [formula_number]
+    explanation_types: [formula_explanation]
+
+  note:
+    label_subtypes: [note_label]
+    text_subtypes: [note_text]
