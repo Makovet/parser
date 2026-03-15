@@ -109,11 +109,12 @@ class ListInfo(BaseModel):
 
 class TableCellRaw(BaseModel):
     text: Optional[str] = None
+    row_index: Optional[int] = None
+    col_index: Optional[int] = None
     row_span: int = 1
     col_span: int = 1
 
     model_config = ConfigDict(extra="forbid")
-
 
 class TableInfo(BaseModel):
     table_id: Optional[str] = None

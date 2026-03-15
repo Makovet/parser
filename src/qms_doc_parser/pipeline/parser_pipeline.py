@@ -6,6 +6,7 @@ from pathlib import Path
 from qms_doc_parser.classifiers.style_classifier import ClassificationInput, StyleClassifier
 from qms_doc_parser.extractors.block_iterator import iter_block_items
 from qms_doc_parser.io.docx_loader import load_docx
+from qms_doc_parser.parsers.table_parser import parse_table
 from qms_doc_parser.models.parser_models import (
     BlockType,
     DocumentZone,
@@ -84,15 +85,17 @@ def parse_docx_to_document(input_path: str | Path, registry_path: str | Path) ->
         elif kind == "table":
             table_index += 1
 
-            # Simplified placeholder table block for now
+            table_info = parse_table(item, table_index)
+
             block = ParserBlock(
                 block_id=f"b{block_order:06d}",
                 block_order=block_order,
                 document_zone=_resolve_table_zone(current_zone),
                 block_type=BlockType.table,
-                block_subtype="raw_table_placeholder",
+                block_subtype="raw_table",
                 raw_text=None,
                 normalized_text=None,
+                table_info=table_info,
                 source_style=None,
                 section_context=SectionContext(),
                 source_location=SourceLocation(table_index=table_index),
