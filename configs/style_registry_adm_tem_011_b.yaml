@@ -146,6 +146,52 @@ style_registry:
     semantic_hints: []
     flags: []
 
+  "Heading 1":
+    block_type: heading
+    block_subtype: main_heading
+    default_zone: main_body
+    heading_level: 1
+    semantic_hints: []
+    flags: []
+
+  "Heading 2":
+    block_type: heading
+    block_subtype: main_heading
+    default_zone: main_body
+    heading_level: 2
+    semantic_hints: []
+    flags: []
+
+  "Normal":
+    block_type: paragraph
+    block_subtype: main_text
+    default_zone: main_body
+    semantic_hints: []
+    flags: []
+
+  "0_ИЦЖТ_Заголовок_Структурный (вне содержания)":
+    block_type: heading
+    block_subtype: structural_heading_outside_toc
+    default_zone: main_body
+    heading_level: 1
+    semantic_hints: []
+    flags: []
+
+  "0_ИЦЖТ_Заголовок_Структурный":
+    block_type: heading
+    block_subtype: structural_heading
+    default_zone: main_body
+    heading_level: 1
+    semantic_hints: []
+    flags: []
+
+  "0_ИЦЖТ_Список источников":
+    block_type: bibliography_item
+    block_subtype: bibliography_entry
+    default_zone: bibliography
+    semantic_hints: []
+    flags: []
+
   "01_ИЦЖТ_слово_ТАБЛИЦА":
     block_type: table_label
     block_subtype: table_word_label

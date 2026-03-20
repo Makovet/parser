@@ -332,6 +332,88 @@ class StructureDetectionTests(unittest.TestCase):
         self.assertEqual(blocks[4].section_context.section_path, ["А"])
         self.assertEqual(blocks[5].section_context.section_path, ["А"])
 
+    def test_registry_alias_styles_do_not_fall_back_to_suspicious_blocks(self) -> None:
+        heading_1 = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="1 Общие положения",
+                style_name="Heading 1",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+        heading_2 = self.classifier.classify(
+            ClassificationInput(
+                block_id="b2",
+                block_order=2,
+                text="1.1 Подраздел",
+                style_name="Heading 2",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+        normal = self.classifier.classify(
+            ClassificationInput(
+                block_id="b3",
+                block_order=3,
+                text="Обычный текст",
+                style_name="Normal",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+
+        self.assertEqual(heading_1.block_type, BlockType.heading)
+        self.assertEqual(heading_1.heading_info.heading_level, 1)
+        self.assertFalse(heading_1.flags.is_suspicious)
+        self.assertFalse(heading_1.flags.needs_review)
+        self.assertEqual(heading_2.block_type, BlockType.heading)
+        self.assertEqual(heading_2.heading_info.heading_level, 2)
+        self.assertFalse(heading_2.flags.is_suspicious)
+        self.assertFalse(heading_2.flags.needs_review)
+        self.assertEqual(normal.block_type, BlockType.paragraph)
+        self.assertFalse(normal.flags.is_suspicious)
+        self.assertFalse(normal.flags.needs_review)
+
+    def test_structural_and_bibliography_styles_use_registry_rules(self) -> None:
+        structural = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Контрольный лист",
+                style_name="0_ИЦЖТ_Заголовок_Структурный (вне содержания)",
+                current_zone=DocumentZone.title_page.value,
+            )
+        )
+        bibliography_heading = self.classifier.classify(
+            ClassificationInput(
+                block_id="b2",
+                block_order=2,
+                text="Библиография",
+                style_name="0_ИЦЖТ_Заголовок_Структурный",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+        bibliography_item = self.classifier.classify(
+            ClassificationInput(
+                block_id="b3",
+                block_order=3,
+                text="QMS-MAP-001 Схема процессов системы менеджмента АО «ИЦ ЖТ».",
+                style_name="0_ИЦЖТ_Список источников",
+                current_zone=DocumentZone.bibliography.value,
+            )
+        )
+
+        self.assertEqual(structural.block_type, BlockType.heading)
+        self.assertEqual(structural.document_zone, DocumentZone.control_sheet)
+        self.assertFalse(structural.flags.is_suspicious)
+        self.assertFalse(structural.flags.needs_review)
+        self.assertEqual(bibliography_heading.block_type, BlockType.heading)
+        self.assertEqual(bibliography_heading.document_zone, DocumentZone.bibliography)
+        self.assertFalse(bibliography_heading.flags.is_suspicious)
+        self.assertEqual(bibliography_item.block_type, BlockType.bibliography_item)
+        self.assertEqual(bibliography_item.document_zone, DocumentZone.bibliography)
+        self.assertFalse(bibliography_item.flags.is_suspicious)
+        self.assertFalse(bibliography_item.flags.needs_review)
+
     def test_regression_non_headings_remain_non_headings(self) -> None:
         table_caption = self.classifier.classify(
             ClassificationInput(

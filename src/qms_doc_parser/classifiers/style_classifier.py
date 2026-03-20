@@ -77,7 +77,7 @@ class StyleClassifier:
             zone = self._safe_document_zone(rule.default_zone)
             block_type = self._safe_block_type(rule.block_type)
 
-            if block_type == BlockType.paragraph:
+            if block_type in {BlockType.paragraph, BlockType.heading}:
                 inferred_type = self._infer_heading_block_type(style_name, normalized_text, current_zone=inp.current_zone)
                 if inferred_type is not None:
                     block_type = inferred_type
@@ -259,7 +259,10 @@ class StyleClassifier:
         if self._is_toc_anchor(style_name, normalized_text) or block_type == BlockType.toc_item:
             return DocumentZone.toc
 
-        if self._is_title_page_style(style_name) and current not in {DocumentZone.control_sheet, DocumentZone.toc, DocumentZone.main_body, DocumentZone.appendix}:
+        if self._is_bibliography_anchor(style_name, normalized_text) or block_type == BlockType.bibliography_item:
+            return DocumentZone.bibliography
+
+        if self._is_title_page_style(style_name) and current not in {DocumentZone.control_sheet, DocumentZone.toc, DocumentZone.main_body, DocumentZone.appendix, DocumentZone.bibliography}:
             return DocumentZone.title_page
 
         if block_type == BlockType.heading:
@@ -267,6 +270,11 @@ class StyleClassifier:
 
         if current == DocumentZone.appendix:
             return DocumentZone.appendix
+
+        if current == DocumentZone.bibliography:
+            if block_type in {BlockType.heading, BlockType.appendix_heading}:
+                return DocumentZone.appendix if block_type == BlockType.appendix_heading else DocumentZone.main_body
+            return DocumentZone.bibliography
 
         if current == DocumentZone.toc:
             if block_type == BlockType.heading and not self._is_toc_anchor(style_name, normalized_text):
@@ -342,7 +350,7 @@ class StyleClassifier:
             if re.match(r"^\s*Приложение\s+[А-ЯA-Z]\b", normalized_text, flags=re.IGNORECASE):
                 return 1
             if registry_level is not None:
-                return registry_level
+                return registry_level if registry_level > 1 else 2
             if style_level is not None:
                 return max(style_level, 2)
             return 2
@@ -403,6 +411,12 @@ class StyleClassifier:
             return True
         normalized_style = style_name.casefold()
         return "оглавление" in normalized_style or "содержание" in normalized_style
+
+    def _is_bibliography_anchor(self, style_name: str, normalized_text: str) -> bool:
+        if normalized_text.casefold() == "библиография":
+            return True
+        normalized_style = style_name.casefold()
+        return "список источников" in normalized_style or "библиограф" in normalized_style
 
     def _extract_list_marker(self, text: str) -> Optional[str]:
         for pattern in [r"^\s*([A-Za-zА-Яа-я]\))\s+", r"^\s*(\d+[\.\)])\s+", r"^\s*([-•–])\s+"]:
