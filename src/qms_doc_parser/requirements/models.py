@@ -16,3 +16,33 @@ class RequirementCandidate(BaseModel):
     compact_section_path: str | None = None
 
     model_config = ConfigDict(extra="forbid")
+
+
+class AtomicRequirement(BaseModel):
+    atomic_id: str
+    atomic_text: str
+    subject_hint: str | None = None
+    action_hint: str | None = None
+    object_hint: str | None = None
+    condition_hint: str | None = None
+    source_span_type: str
+    confidence: float | str
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class RequirementRecord(BaseModel):
+    requirement_id: str
+    source_candidate_id: str
+    source_block_ids: list[str] = Field(default_factory=list)
+    primary_block_id: str
+    document_zone: str
+    section_path: list[str] = Field(default_factory=list)
+    compact_section_path: str | None = None
+    original_text: str
+    normalized_text: str
+    requirement_kind: str | None = None
+    decomposition_strategy: str
+    atomic_requirements: list[AtomicRequirement] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="forbid")
