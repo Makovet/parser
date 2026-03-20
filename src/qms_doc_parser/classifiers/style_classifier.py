@@ -60,7 +60,7 @@ class StyleClassifier:
             return ParserBlock(
                 block_id=inp.block_id,
                 block_order=inp.block_order,
-                document_zone=DocumentZone.unknown_zone,
+                document_zone=self._determine_empty_zone(inp.current_zone),
                 block_type=BlockType.empty,
                 raw_text=raw_text,
                 normalized_text=normalized_text,
@@ -216,15 +216,28 @@ class StyleClassifier:
         return BlockType.unknown
 
     def _infer_heading_block_type(self, style_name: str, normalized_text: str, current_zone: Optional[str]) -> Optional[BlockType]:
+        in_appendix_context = current_zone == DocumentZone.appendix.value
+
         if self._style_implies_appendix_heading(style_name):
             return BlockType.appendix_heading
         if self._text_implies_appendix_heading(normalized_text):
             return BlockType.appendix_heading
+        if in_appendix_context and self._style_implies_heading(style_name):
+            return BlockType.appendix_heading
         if self._style_implies_heading(style_name):
             return BlockType.heading
-        if current_zone == DocumentZone.appendix.value and self._looks_like_appendix_subheading(normalized_text):
+        if in_appendix_context and self._looks_like_appendix_subheading(normalized_text):
             return BlockType.appendix_heading
         return None
+
+    def _determine_empty_zone(self, current_zone: Optional[str]) -> DocumentZone:
+        if current_zone in {
+            DocumentZone.title_page.value,
+            DocumentZone.control_sheet.value,
+            DocumentZone.toc.value,
+        }:
+            return DocumentZone(current_zone)
+        return DocumentZone.unknown_zone
 
     def _determine_zone(
         self,
@@ -320,14 +333,22 @@ class StyleClassifier:
         style_name: str,
         normalized_text: str,
     ) -> Optional[int]:
+        inferred_level = self._infer_heading_level(normalized_text, block_type=block_type)
+        style_level = self._extract_heading_level_from_style(style_name)
+
+        if block_type == BlockType.appendix_heading:
+            if inferred_level is not None:
+                return inferred_level
+            if registry_level is not None:
+                return registry_level
+            if style_level is not None:
+                return style_level
+            return 1
+
         if registry_level is not None:
             return registry_level
-
-        style_level = self._extract_heading_level_from_style(style_name)
         if style_level is not None:
             return style_level
-
-        inferred_level = self._infer_heading_level(normalized_text, block_type=block_type)
         if inferred_level is not None:
             return inferred_level
 
