@@ -50,8 +50,8 @@ class RequirementReviewTests(unittest.TestCase):
 
         self.assertEqual([case.ambiguity_type for case in review_cases], ["requires_list_item_context", "missing_subject_context", "missing_subject_context"])
         self.assertEqual(review_cases[0].context_requirement_ids, ["reqr_0002", "reqr_0003"])
-        self.assertEqual(decisions[0].decision_label, "needs_human_review")
-        self.assertEqual(decisions[0].reviewer_action, "link_header_to_list_items")
+        self.assertEqual(decisions[0].decision_label, "safe_auto_apply")
+        self.assertEqual(decisions[0].reviewer_action, "mark_context_only")
         self.assertEqual(records[0].atomic_requirements, [])
 
     def test_conditional_semicolon_split_gets_review_recommended_decision(self) -> None:

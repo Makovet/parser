@@ -127,9 +127,9 @@ def _baseline_decision(
 ) -> tuple[str, str | None, str, float]:
     if review_case.ambiguity_type == "requires_list_item_context":
         return (
-            "needs_human_review",
-            "link_header_to_list_items",
-            "Header defines context for following list items and should be reviewed without auto-applying a merge.",
+            "safe_auto_apply",
+            "mark_context_only",
+            "Header defines list context and can be safely preserved as context-only without merging records.",
             0.93,
         )
     if review_case.ambiguity_type == "dangling_list_header":
@@ -141,9 +141,9 @@ def _baseline_decision(
         )
     if review_case.ambiguity_type == "missing_subject_context":
         return (
-            "needs_human_review",
-            "confirm_subject_from_context",
-            "Contextual list item lacks its own explicit subject and should inherit scope only after review.",
+            "safe_auto_apply",
+            "apply_subject_from_parent_context",
+            "Contextual list item can safely inherit subject scope from the immediately preceding parent list header context.",
             0.89,
         )
     if review_case.ambiguity_type == "mixed_subject_scope":
