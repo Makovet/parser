@@ -39,7 +39,7 @@ def parse_docx_to_document(input_path: str | Path, registry_path: str | Path) ->
     block_order = 0
     used_styles: set[str] = set()
 
-    current_zone: str | None = None
+    current_zone: str | None = DocumentZone.title_page.value
 
     for kind, item in iter_block_items(doc):
         block_order += 1
@@ -132,7 +132,7 @@ def _resolve_table_zone(current_zone: str | None) -> DocumentZone:
     if current_zone and current_zone in DocumentZone._value2member_map_:
         return DocumentZone(current_zone)
 
-    return DocumentZone.main_body
+    return DocumentZone.title_page
 
 
 def _build_summary(blocks: list[ParserBlock]) -> StructureSummary:
