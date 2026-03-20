@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=QMS DOC Parser
+Comment=Выбрать DOCX-файл и разобрать его в JSON
+Path=/workspace/parser
+Exec=python3 /workspace/parser/scripts/launch_parser_gui.py
+Icon=utilities-terminal
+Terminal=false
+Categories=Office;Utility;
