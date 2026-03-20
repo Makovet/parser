@@ -21,8 +21,38 @@ python -m pip install -e .
 ```bash
 python scripts/run_parse.py data/input/1.docx \
   --registry configs/style_registry_adm_tem_011_b.yaml \
-  --output data/output/1.json
+  --output /tmp/1.json
 ```
+
+## Быстрый старт для разработчика
+
+1. Установите проект в editable-режиме:
+
+```bash
+python -m pip install -e .
+```
+
+2. Запустите тесты из корня репозитория:
+
+```bash
+python -m pytest -q
+```
+
+3. Запустите пример разбора документа:
+
+```bash
+python scripts/run_parse.py data/input/1.docx \
+  --registry configs/style_registry_adm_tem_011_b.yaml \
+  --output /tmp/1.json
+```
+
+Локальные результаты разбора в `data/output/` и временные JSON-файлы не должны коммититься: каталог предназначен только для локальных запусков.
+
+## Sample integration policy
+
+- Для `data/input/1.docx` используется интеграционный тест на ключевые инварианты парсинга.
+- Тест проверяет формирование summary, наличие секций, таблиц и ожидаемых зон документа.
+- `data/output/` зарезервирован для локально сгенерированных файлов и исключён из git.
 
 ## Запуск по клику через ярлык
 
