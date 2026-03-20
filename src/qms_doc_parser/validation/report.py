@@ -23,10 +23,15 @@ PARSER_DOCUMENT_CONTRACT = [
     ContractFieldSpec(path="ParserBlock.prev_block_id", notes="Stable adjacency link populated for review/downstream traversal."),
     ContractFieldSpec(path="ParserBlock.next_block_id", notes="Stable adjacency link populated for review/downstream traversal."),
     ContractFieldSpec(path="ParserBlock.review_features", notes="Stable review-friendly structural features."),
+    ContractFieldSpec(path="ParserBlock.review_render_hints", notes="Stable review/export rendering hints for visual review outputs."),
+    ContractFieldSpec(path="ParserBlock.paragraph_formatting", required=False, notes="Compact paragraph formatting snapshot for review export."),
+    ContractFieldSpec(path="ParserBlock.runs", required=False, notes="Stable run-level formatting snapshot for text-bearing blocks."),
+    ContractFieldSpec(path="ParserBlock.list_formatting", required=False, notes="Stable list-format snapshot for list item blocks."),
     ContractFieldSpec(path="ParserBlock.table_info", required=False, notes="Required for table blocks; downstream table consumers rely on it."),
     ContractFieldSpec(path="ParserBlock.note_info", required=False, notes="Optional typed note object; note-related metadata and block types remain stable."),
     ContractFieldSpec(path="ParserBlock.metadata.note_group_id", required=False, notes="Stable note grouping metadata when note grouping applies."),
     ContractFieldSpec(path="ParserBlock.metadata.is_orphan", required=False, notes="Stable note orphan marker used by review validation."),
+    ContractFieldSpec(path="ParserDocument.style_catalog", required=False, notes="Compact style catalog for future review/export layers."),
 ]
 
 REVIEW_CANDIDATE_CONTRACT = [
