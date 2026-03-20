@@ -40,3 +40,32 @@ class ValidationReport(BaseModel):
     downstream_ready: bool = False
 
     model_config = ConfigDict(extra="forbid")
+
+
+class BatchValidationDocumentResult(BaseModel):
+    input_path: str
+    report_path: str | None = None
+    report: ValidationReport | None = None
+    status: ValidationStatus
+    message: str
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class BatchValidationSummary(BaseModel):
+    total_documents: int = 0
+    passed_documents: int = 0
+    failed_documents: int = 0
+    warnings_count: int = 0
+    common_failed_checks: dict[str, int] = Field(default_factory=dict)
+    common_warning_checks: dict[str, int] = Field(default_factory=dict)
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class BatchValidationReport(BaseModel):
+    input_paths: list[str] = Field(default_factory=list)
+    documents: list[BatchValidationDocumentResult] = Field(default_factory=list)
+    summary: BatchValidationSummary = Field(default_factory=BatchValidationSummary)
+
+    model_config = ConfigDict(extra="forbid")
