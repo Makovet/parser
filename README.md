@@ -24,9 +24,30 @@ python scripts/run_parse.py data/input/1.docx \
   --output data/output/1.json
 ```
 
+## Запуск по клику через ярлык
+
+В репозитории добавлен ярлык `qms-doc-parser.desktop` и GUI-ланчер `scripts/launch_parser_gui.py`.
+
+1. Установите зависимости:
+
+```bash
+python -m pip install -e .
+```
+
+2. Сделайте ярлык исполняемым:
+
+```bash
+chmod +x qms-doc-parser.desktop
+```
+
+3. Переместите или скопируйте `qms-doc-parser.desktop` на рабочий стол/в нужную папку.
+4. Открывайте ярлык двойным кликом.
+5. В появившемся окне выберите `.docx`, затем укажите, куда сохранить `.json`.
+
 ## Ключевые точки входа
 
 - CLI: `scripts/run_parse.py`
+- GUI-ланчер: `scripts/launch_parser_gui.py`
 - API-обёртка записи JSON: `src/qms_doc_parser/main.py`
 - Основной pipeline: `src/qms_doc_parser/pipeline/parser_pipeline.py`
 - Классификация абзацев: `src/qms_doc_parser/classifiers/style_classifier.py`
