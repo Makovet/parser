@@ -220,14 +220,14 @@ class StyleClassifier:
 
         if self._style_implies_appendix_heading(style_name):
             return BlockType.appendix_heading
-        if self._text_implies_appendix_heading(normalized_text):
+        if self._looks_like_appendix_root(normalized_text):
             return BlockType.appendix_heading
-        if in_appendix_context and self._style_implies_heading(style_name):
-            return BlockType.appendix_heading
-        if self._style_implies_heading(style_name):
-            return BlockType.heading
         if in_appendix_context and self._looks_like_appendix_subheading(normalized_text):
             return BlockType.appendix_heading
+        if in_appendix_context and self._style_implies_heading(style_name) and self._allows_appendix_heading_in_context(normalized_text):
+            return BlockType.appendix_heading
+        if self._style_implies_heading(style_name) and self._allows_style_heading_fallback(normalized_text):
+            return BlockType.heading
         return None
 
     def _determine_empty_zone(self, current_zone: Optional[str]) -> DocumentZone:
@@ -385,14 +385,54 @@ class StyleClassifier:
         return "прил" in normalized_style and self._style_implies_heading(style_name)
 
     def _text_implies_appendix_heading(self, text: str) -> bool:
-        if re.match(r"^\s*Приложение\s+[А-ЯA-Z]\b", text, flags=re.IGNORECASE):
-            return True
-        if re.match(r"^\s*[А-ЯA-Z](?:\.\d+){1,5}\s+.+$", text):
-            return True
-        return False
+        return self._looks_like_appendix_root(text) or self._looks_like_appendix_subheading(text)
+
+    def _looks_like_appendix_root(self, text: str) -> bool:
+        return bool(
+            re.match(
+                r"^\s*Приложение\s+[А-ЯA-Z]\b(?:\s*\([^)]*\))?(?:\s*[—:-]\s*.+|\s+.+)?$",
+                text,
+                flags=re.IGNORECASE,
+            )
+        )
 
     def _looks_like_appendix_subheading(self, text: str) -> bool:
         return bool(re.match(r"^\s*[А-ЯA-Z](?:\.\d+){1,5}\s+.+$", text))
+
+    def _allows_appendix_heading_in_context(self, text: str) -> bool:
+        stripped = text.strip()
+        if not stripped:
+            return False
+        if self._looks_like_appendix_subheading(stripped):
+            return True
+        if stripped.startswith("(") and len(self._split_words(stripped)) <= 8 and not self._has_terminal_sentence_punctuation(stripped):
+            return True
+        return self._allows_style_heading_fallback(stripped)
+
+    def _allows_style_heading_fallback(self, text: str) -> bool:
+        stripped = text.strip()
+        if not stripped:
+            return False
+        if self._looks_like_appendix_root(stripped) or self._looks_like_appendix_subheading(stripped):
+            return True
+        if re.match(r"^\s*(\d+(?:\.\d+){0,5})\s+.+$", stripped):
+            return True
+        if self._has_terminal_sentence_punctuation(stripped):
+            return False
+        if any(mark in stripped for mark in [",", ";"]):
+            return False
+        word_count = len(self._split_words(stripped))
+        if word_count == 0 or word_count > 8:
+            return False
+        if len(stripped) > 80:
+            return False
+        return True
+
+    def _has_terminal_sentence_punctuation(self, text: str) -> bool:
+        return text.rstrip().endswith((".", "!", "?", ";", ":"))
+
+    def _split_words(self, text: str) -> list[str]:
+        return re.findall(r"[\wА-Яа-яA-Za-z-]+", text, flags=re.UNICODE)
 
     def _is_title_page_style(self, style_name: str) -> bool:
         if not style_name:
