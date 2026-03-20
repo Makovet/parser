@@ -54,6 +54,8 @@ def _resolve_decomposition_strategy(candidates: list[RequirementCandidate], inde
         next_candidate = candidates[index + 1] if index + 1 < len(candidates) else None
         if next_candidate and next_candidate.extraction_reason == "normative_context_list_item" and next_candidate.section_path == candidate.section_path:
             return "list_header_context"
+    if len(_split_normative_sentences(normalized_text)) > 1:
+        return "sentence_split"
     if ";" in normalized_text and len(_split_atomic_clauses(normalized_text)) > 1:
         return "semicolon_split"
     return "single_atomic"
@@ -67,6 +69,9 @@ def _build_atomic_requirements(
 ) -> list[AtomicRequirement]:
     if strategy == "list_header_context":
         return []
+    if strategy == "sentence_split":
+        parts = _split_normative_sentences(normalized_text)
+        return [_make_atomic_requirement(part, record_index, idx + 1, "sentence", 0.82, candidate.requirement_kind) for idx, part in enumerate(parts)]
     if strategy == "semicolon_split":
         parts = _split_atomic_clauses(normalized_text)
         return [_make_atomic_requirement(part, record_index, idx + 1, "clause", 0.8, candidate.requirement_kind) for idx, part in enumerate(parts)]
@@ -77,6 +82,12 @@ def _build_atomic_requirements(
 
 def _split_atomic_clauses(text: str) -> list[str]:
     return [part.strip() for part in re.split(r";", text) if part.strip()]
+
+
+def _split_normative_sentences(text: str) -> list[str]:
+    parts = [part.strip() for part in re.split(r"(?<=[.!?])\s+", text) if part.strip()]
+    normative_parts = [part for part in parts if _MARKER_RE.search(part)]
+    return normative_parts if len(normative_parts) > 1 else []
 
 
 def _make_atomic_requirement(

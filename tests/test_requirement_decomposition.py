@@ -88,6 +88,23 @@ class RequirementDecompositionTests(unittest.TestCase):
         self.assertEqual(len(records[0].atomic_requirements), 2)
         self.assertEqual(records[0].atomic_requirements[0].source_span_type, "clause")
 
+    def test_multiple_normative_sentences_are_split_into_atomic_requirements(self) -> None:
+        records = build_requirement_records(
+            [
+                self._candidate(
+                    candidate_id="reqc_0005",
+                    block_id="b5",
+                    text="Организация должна вести реестр. Каждый процесс должен пересматриваться ежегодно.",
+                    extraction_reason="normative_marker_paragraph",
+                    section_path=["5"],
+                )
+            ]
+        )
+
+        self.assertEqual(records[0].decomposition_strategy, "sentence_split")
+        self.assertEqual(len(records[0].atomic_requirements), 2)
+        self.assertEqual(records[0].atomic_requirements[0].source_span_type, "sentence")
+
     def test_traceability_fields_are_preserved(self) -> None:
         record = build_requirement_records(
             [
