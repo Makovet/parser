@@ -4,7 +4,7 @@ from collections import defaultdict
 
 from docx.table import Table
 
-from qms_doc_parser.models.parser_models import TableCellRaw, TableInfo
+from qms_doc_parser.models.parser_models import CellFormattingSnapshot, TableCellRaw, TableInfo
 
 
 def parse_table(table: Table, table_index: int) -> TableInfo:
@@ -30,6 +30,8 @@ def parse_table(table: Table, table_index: int) -> TableInfo:
         rows_count=rows_count,
         cols_count=cols_count,
         header_row_count=1 if rows_count > 0 else 0,
+        table_style=table.style.name if table.style is not None else None,
+        has_header_row=rows_count > 0,
         cells_raw=cells_raw,
         cells_normalized=normalized_cells,
     )
@@ -70,6 +72,7 @@ def _build_raw_cells(grid: list[list]) -> list[list[TableCellRaw]]:
             col_index=left,
             row_span=(bottom - top) + 1,
             col_span=(right - left) + 1,
+            formatting=_extract_cell_formatting(origin_cell),
         )
 
     cells_raw: list[list[TableCellRaw]] = []
@@ -90,3 +93,15 @@ def _normalize_cell_text(text: str | None) -> str | None:
 
     normalized = " ".join(text.split())
     return normalized or None
+
+
+def _extract_cell_formatting(cell) -> CellFormattingSnapshot:
+    first_paragraph = cell.paragraphs[0] if cell.paragraphs else None
+    style_name = first_paragraph.style.name if first_paragraph is not None and first_paragraph.style is not None else None
+    paragraph_alignment = first_paragraph.alignment.name.lower() if first_paragraph is not None and first_paragraph.alignment is not None else None
+    vertical_alignment = cell.vertical_alignment.name.lower() if cell.vertical_alignment is not None else None
+    return CellFormattingSnapshot(
+        cell_source_style=style_name,
+        horizontal_alignment=paragraph_alignment,
+        vertical_alignment=vertical_alignment,
+    )

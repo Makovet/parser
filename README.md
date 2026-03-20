@@ -54,6 +54,14 @@ python scripts/run_review_candidates.py data/input/1.docx \
   --output /tmp/1.review_candidates.json
 ```
 
+5. Для детерминированного reviewer-слоя поверх `requirement_records` можно отдельно выгрузить requirement review payload:
+
+```bash
+python scripts/run_requirement_review.py data/input/1.docx \
+  --registry configs/style_registry_adm_tem_011_b.yaml \
+  --output /tmp/1.requirement_review.json
+```
+
 Локальные результаты разбора в `data/output/` и временные JSON-файлы не должны коммититься: каталог предназначен только для локальных запусков.
 
 ## Sample integration policy
