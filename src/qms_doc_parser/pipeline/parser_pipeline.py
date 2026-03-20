@@ -18,6 +18,7 @@ from qms_doc_parser.models.parser_models import (
     SourceMeta,
     StructureSummary,
 )
+from qms_doc_parser.review.block_features import annotate_blocks_for_review
 from qms_doc_parser.registry.registry_loader import load_style_registry
 from qms_doc_parser.trackers.section_tracker import SectionTracker
 
@@ -106,6 +107,7 @@ def parse_docx_to_document(input_path: str | Path, registry_path: str | Path) ->
             blocks.append(block)
 
     apply_note_grouping(blocks)
+    annotate_blocks_for_review(blocks)
 
     source = SourceMeta(
         file_name=input_path.name,

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import List, Optional
+from typing import Any, List, Optional
 
 from pydantic import BaseModel, Field, ConfigDict
 
@@ -182,6 +182,20 @@ class SourceLocation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class BlockReviewFeatures(BaseModel):
+    compact_section_path: Optional[str] = None
+    heading_detection_source: Optional[str] = None
+    text_ends_with_colon: bool = False
+    text_starts_with_table_marker: bool = False
+    text_starts_with_figure_marker: bool = False
+    looks_like_appendix_marker: bool = False
+    looks_like_note_anchor: bool = False
+    is_empty_or_layout_artifact: bool = False
+    next_blocks_are_list_items: bool = False
+
+    model_config = ConfigDict(extra="forbid")
+
+
 class ParserBlock(BaseModel):
     block_id: str
     block_order: int
@@ -192,6 +206,8 @@ class ParserBlock(BaseModel):
     raw_text: Optional[str] = None
     normalized_text: Optional[str] = None
     source_style: Optional[str] = None
+    prev_block_id: Optional[str] = None
+    next_block_id: Optional[str] = None
 
     style_flags: Optional[StyleFlags] = None
     indent: Optional[IndentInfo] = None
@@ -206,6 +222,7 @@ class ParserBlock(BaseModel):
     section_context: SectionContext = Field(default_factory=SectionContext)
     source_location: SourceLocation = Field(default_factory=SourceLocation)
     flags: BlockFlags = Field(default_factory=BlockFlags)
+    review_features: Optional[BlockReviewFeatures] = None
 
     model_config = ConfigDict(extra="allow")
 
@@ -255,3 +272,27 @@ class ParserDocument(BaseModel):
     blocks: List[ParserBlock] = Field(default_factory=list)
 
     model_config = ConfigDict(extra="allow")
+
+
+class ReviewBlockSummary(BaseModel):
+    block_id: str
+    block_type: str
+    document_zone: str
+    text_preview: Optional[str] = None
+    section_path: List[str] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class ReviewCandidate(BaseModel):
+    candidate_id: str
+    block_id: str
+    current_label: Optional[str] = None
+    current_block_type: str
+    reason_codes: List[str] = Field(default_factory=list)
+    previous_blocks: List[ReviewBlockSummary] = Field(default_factory=list)
+    current_block: ReviewBlockSummary
+    next_blocks: List[ReviewBlockSummary] = Field(default_factory=list)
+    selected_features: dict[str, Any] = Field(default_factory=dict)
+
+    model_config = ConfigDict(extra="forbid")
