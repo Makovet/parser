@@ -192,6 +192,86 @@ class StructureDetectionTests(unittest.TestCase):
         self.assertEqual(tracked_list_item.section_context.section_path, ["А", "А.1"])
         self.assertEqual(tracked_table.section_context.section_path, ["А", "А.1"])
 
+    def test_multiple_appendix_roots_reset_appendix_branch(self) -> None:
+        tracker = SectionTracker()
+        appendix_a = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Приложение А",
+                style_name="Heading 1",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+        appendix_a_child = self.classifier.classify(
+            ClassificationInput(
+                block_id="b2",
+                block_order=2,
+                text="А.1 Описание формы",
+                style_name="Heading 1",
+                current_zone=appendix_a.document_zone.value,
+            )
+        )
+        appendix_b = self.classifier.classify(
+            ClassificationInput(
+                block_id="b3",
+                block_order=3,
+                text="Приложение Б",
+                style_name="Heading 1",
+                current_zone=appendix_a_child.document_zone.value,
+            )
+        )
+
+        tracked_a = tracker.apply(appendix_a)
+        tracked_a_child = tracker.apply(appendix_a_child)
+        tracked_b = tracker.apply(appendix_b)
+
+        self.assertEqual(tracked_a.section_context.section_path, ["А"])
+        self.assertEqual(tracked_a_child.section_context.section_path, ["А", "А.1"])
+        self.assertEqual(tracked_b.section_context.section_path, ["Б"])
+        self.assertEqual(tracked_b.section_context.parent_section_id, None)
+
+    def test_appendix_title_after_root_keeps_appendix_branch(self) -> None:
+        tracker = SectionTracker()
+        root = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Приложение А",
+                style_name="Heading 1",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+        title_like = self.classifier.classify(
+            ClassificationInput(
+                block_id="b2",
+                block_order=2,
+                text="(справочное) Правила заполнения формы",
+                style_name="Heading 1",
+                current_zone=root.document_zone.value,
+            )
+        )
+        body_text = self.classifier.classify(
+            ClassificationInput(
+                block_id="b3",
+                block_order=3,
+                text="Текст приложения",
+                style_name="0_ИЦЖТ_Текст",
+                current_zone=title_like.document_zone.value,
+            )
+        )
+
+        tracked_root = tracker.apply(root)
+        tracked_title = tracker.apply(title_like)
+        tracked_body = tracker.apply(body_text)
+
+        self.assertEqual(tracked_root.block_type, BlockType.appendix_heading)
+        self.assertEqual(tracked_title.block_type, BlockType.appendix_heading)
+        self.assertEqual(tracked_title.document_zone, DocumentZone.appendix)
+        self.assertEqual(tracked_body.document_zone, DocumentZone.appendix)
+        self.assertEqual(tracked_title.section_context.section_path, ["А", "APP_UNNUMBERED_2"])
+        self.assertEqual(tracked_body.section_context.section_path, ["А", "APP_UNNUMBERED_2"])
+
     def test_main_body_heading_does_not_become_appendix_heading(self) -> None:
         heading = self.classifier.classify(
             ClassificationInput(

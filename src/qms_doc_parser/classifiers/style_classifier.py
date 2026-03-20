@@ -339,11 +339,13 @@ class StyleClassifier:
         if block_type == BlockType.appendix_heading:
             if inferred_level is not None:
                 return inferred_level
+            if re.match(r"^\s*Приложение\s+[А-ЯA-Z]\b", normalized_text, flags=re.IGNORECASE):
+                return 1
             if registry_level is not None:
                 return registry_level
             if style_level is not None:
-                return style_level
-            return 1
+                return max(style_level, 2)
+            return 2
 
         if registry_level is not None:
             return registry_level
