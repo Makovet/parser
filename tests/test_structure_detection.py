@@ -70,6 +70,21 @@ class StructureDetectionTests(unittest.TestCase):
         self.assertEqual(by_text.document_zone, DocumentZone.appendix)
         self.assertEqual(by_text.heading_info.heading_number, "Б")
 
+    def test_appendix_root_with_parenthetical_marker_switches_to_appendix(self) -> None:
+        appendix_root = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Приложение А (рекомендуемое)",
+                style_name="Normal",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+
+        self.assertEqual(appendix_root.block_type, BlockType.appendix_heading)
+        self.assertEqual(appendix_root.document_zone, DocumentZone.appendix)
+        self.assertEqual(appendix_root.heading_info.heading_number, "А")
+
     def test_zone_transitions_follow_front_matter_main_body_and_appendix(self) -> None:
         current_zone = DocumentZone.title_page.value
         tracker = SectionTracker()
@@ -191,6 +206,60 @@ class StructureDetectionTests(unittest.TestCase):
         self.assertEqual(tracked_paragraph.section_context.section_path, ["А", "А.1"])
         self.assertEqual(tracked_list_item.section_context.section_path, ["А", "А.1"])
         self.assertEqual(tracked_table.section_context.section_path, ["А", "А.1"])
+
+    def test_appendix_branch_is_retained_after_root_appendix_marker(self) -> None:
+        tracker = SectionTracker()
+        current_zone = DocumentZone.main_body.value
+        appendix_root = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Приложение А (рекомендуемое)",
+                style_name="Normal",
+                current_zone=current_zone,
+            )
+        )
+        current_zone = appendix_root.document_zone.value
+        paragraph = self.classifier.classify(
+            ClassificationInput(
+                block_id="b2",
+                block_order=2,
+                text="Текст приложения",
+                style_name="0_ИЦЖТ_Текст",
+                current_zone=current_zone,
+            )
+        )
+        list_item = self.classifier.classify(
+            ClassificationInput(
+                block_id="b3",
+                block_order=3,
+                text="- Элемент приложения",
+                style_name="03_ИЦЖТ_Перечисление_1 ур. = -",
+                current_zone=current_zone,
+            )
+        )
+        table = ParserBlock(
+            block_id="b4",
+            block_order=4,
+            document_zone=DocumentZone.appendix,
+            block_type=BlockType.table,
+            block_subtype="raw_table",
+            section_context=SectionContext(),
+            source_location=SourceLocation(table_index=1),
+        )
+
+        tracked_root = tracker.apply(appendix_root)
+        tracked_paragraph = tracker.apply(paragraph)
+        tracked_list_item = tracker.apply(list_item)
+        tracked_table = tracker.apply(table)
+
+        self.assertEqual(tracked_root.section_context.section_path, ["А"])
+        self.assertEqual(tracked_paragraph.document_zone, DocumentZone.appendix)
+        self.assertEqual(tracked_list_item.document_zone, DocumentZone.appendix)
+        self.assertEqual(tracked_table.document_zone, DocumentZone.appendix)
+        self.assertEqual(tracked_paragraph.section_context.section_path, ["А"])
+        self.assertEqual(tracked_list_item.section_context.section_path, ["А"])
+        self.assertEqual(tracked_table.section_context.section_path, ["А"])
 
     def test_multiple_appendix_roots_reset_appendix_branch(self) -> None:
         tracker = SectionTracker()
@@ -436,6 +505,48 @@ class StructureDetectionTests(unittest.TestCase):
 
         self.assertEqual(table_caption.block_type, BlockType.table_caption)
         self.assertEqual(ordinary_paragraph.block_type, BlockType.paragraph)
+
+    def test_long_procedural_sentence_does_not_become_fallback_heading(self) -> None:
+        block = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Специалист должен проверить комплектность документов перед передачей в архив.",
+                style_name="Heading X",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+
+        self.assertEqual(block.block_type, BlockType.paragraph)
+        self.assertEqual(block.block_subtype, "plain_paragraph_fallback")
+
+    def test_long_narrative_sentence_does_not_become_fallback_heading(self) -> None:
+        block = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="Настоящая процедура применяется во всех подразделениях и описывает порядок взаимодействия участников процесса.",
+                style_name="Heading X",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+
+        self.assertEqual(block.block_type, BlockType.paragraph)
+        self.assertEqual(block.block_subtype, "plain_paragraph_fallback")
+
+    def test_numbered_heading_fallback_remains_heading(self) -> None:
+        block = self.classifier.classify(
+            ClassificationInput(
+                block_id="b1",
+                block_order=1,
+                text="2 Порядок выполнения",
+                style_name="Heading X",
+                current_zone=DocumentZone.main_body.value,
+            )
+        )
+
+        self.assertEqual(block.block_type, BlockType.heading)
+        self.assertEqual(block.heading_info.heading_number, "2")
 
 
 if __name__ == "__main__":

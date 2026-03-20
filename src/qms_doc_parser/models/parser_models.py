@@ -115,6 +115,7 @@ class TableCellRaw(BaseModel):
     col_index: Optional[int] = None
     row_span: int = 1
     col_span: int = 1
+    formatting: Optional[CellFormattingSnapshot] = None
 
     model_config = ConfigDict(extra="forbid")
 
@@ -124,6 +125,8 @@ class TableInfo(BaseModel):
     rows_count: Optional[int] = None
     cols_count: Optional[int] = None
     header_row_count: Optional[int] = None
+    table_style: Optional[str] = None
+    has_header_row: Optional[bool] = None
     cells_raw: List[List[TableCellRaw]] = Field(default_factory=list)
     cells_normalized: List[List[Optional[str]]] = Field(default_factory=list)
 
@@ -196,6 +199,78 @@ class BlockReviewFeatures(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ParagraphFormattingSnapshot(BaseModel):
+    alignment: Optional[str] = None
+    left_indent_pt: Optional[float] = None
+    right_indent_pt: Optional[float] = None
+    first_line_indent_pt: Optional[float] = None
+    space_before_pt: Optional[float] = None
+    space_after_pt: Optional[float] = None
+    line_spacing: Optional[float] = None
+    keep_with_next: Optional[bool] = None
+    keep_together: Optional[bool] = None
+    page_break_before: Optional[bool] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class RunFormattingSnapshot(BaseModel):
+    text: str
+    char_style: Optional[str] = None
+    bold: Optional[bool] = None
+    italic: Optional[bool] = None
+    underline: Optional[bool] = None
+    font_name: Optional[str] = None
+    font_size_pt: Optional[float] = None
+    color_rgb: Optional[str] = None
+    highlight: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class ListFormattingSnapshot(BaseModel):
+    list_id: Optional[str] = None
+    level: Optional[int] = None
+    marker_type: Optional[str] = None
+    marker_text: Optional[str] = None
+    numbering_style: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class CellFormattingSnapshot(BaseModel):
+    cell_source_style: Optional[str] = None
+    horizontal_alignment: Optional[str] = None
+    vertical_alignment: Optional[str] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class StyleDefaultsSnapshot(BaseModel):
+    paragraph: Optional[ParagraphFormattingSnapshot] = None
+    run: Optional[RunFormattingSnapshot] = None
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class StyleCatalogEntry(BaseModel):
+    style_name: str
+    style_type: Optional[str] = None
+    base_style: Optional[str] = None
+    defaults: StyleDefaultsSnapshot = Field(default_factory=StyleDefaultsSnapshot)
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class ReviewRenderHints(BaseModel):
+    needs_review: bool = False
+    is_suspicious: bool = False
+    is_unresolved: bool = False
+    show_in_review_docx: bool = True
+
+    model_config = ConfigDict(extra="forbid")
+
+
 class ParserBlock(BaseModel):
     block_id: str
     block_order: int
@@ -211,6 +286,9 @@ class ParserBlock(BaseModel):
 
     style_flags: Optional[StyleFlags] = None
     indent: Optional[IndentInfo] = None
+    paragraph_formatting: Optional[ParagraphFormattingSnapshot] = None
+    runs: List[RunFormattingSnapshot] = Field(default_factory=list)
+    list_formatting: Optional[ListFormattingSnapshot] = None
 
     heading_info: Optional[HeadingInfo] = None
     list_info: Optional[ListInfo] = None
@@ -223,6 +301,7 @@ class ParserBlock(BaseModel):
     source_location: SourceLocation = Field(default_factory=SourceLocation)
     flags: BlockFlags = Field(default_factory=BlockFlags)
     review_features: Optional[BlockReviewFeatures] = None
+    review_render_hints: ReviewRenderHints = Field(default_factory=ReviewRenderHints)
 
     model_config = ConfigDict(extra="allow")
 
@@ -269,6 +348,7 @@ class ParserDocument(BaseModel):
     document_metadata: DocumentMetadata = Field(default_factory=DocumentMetadata)
     structure_summary: StructureSummary = Field(default_factory=StructureSummary)
     style_registry_used: List[str] = Field(default_factory=list)
+    style_catalog: List[StyleCatalogEntry] = Field(default_factory=list)
     blocks: List[ParserBlock] = Field(default_factory=list)
 
     model_config = ConfigDict(extra="allow")
