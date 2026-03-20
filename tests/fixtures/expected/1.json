@@ -5,13 +5,13 @@
     "file_name": "1.docx",
     "file_type": "docx",
     "parser_version": "0.3.1",
-    "processed_at": "2026-03-15T10:14:03.445003",
+    "processed_at": "2026-03-20T12:11:45.533518",
     "language": "ru"
   },
   "document_metadata": {},
   "structure_summary": {
     "total_blocks": 123,
-    "total_sections": 0,
+    "total_sections": 18,
     "total_appendix_sections": 0,
     "total_tables": 6,
     "total_figures": 0,
@@ -40,9 +40,87 @@
     {
       "block_id": "b000001",
       "block_order": 1,
-      "document_zone": "main_body",
+      "document_zone": "title_page",
       "block_type": "table",
-      "block_subtype": "raw_table_placeholder",
+      "block_subtype": "raw_table",
+      "table_info": {
+        "table_id": "tbl_0001",
+        "table_index": 1,
+        "rows_count": 5,
+        "cols_count": 2,
+        "header_row_count": 1,
+        "cells_raw": [
+          [
+            {
+              "row_index": 0,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Акционерное общество «Инжиниринговый центр железнодорожного транспорта»",
+              "row_index": 0,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "row_index": 1,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            }
+          ],
+          [
+            {
+              "row_index": 2,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            }
+          ],
+          [
+            {
+              "row_index": 3,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            }
+          ],
+          [
+            {
+              "row_index": 4,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            }
+          ]
+        ],
+        "cells_normalized": [
+          [
+            null,
+            "Акционерное общество «Инжиниринговый центр железнодорожного транспорта»"
+          ],
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ]
+      },
       "section_context": {
         "section_path": []
       },
@@ -65,7 +143,7 @@
     {
       "block_id": "b000002",
       "block_order": 2,
-      "document_zone": "unknown_zone",
+      "document_zone": "title_page",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -98,9 +176,9 @@
     {
       "block_id": "b000003",
       "block_order": 3,
-      "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "document_zone": "control_sheet",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Контрольный лист",
       "normalized_text": "Контрольный лист",
       "source_style": "0_ИЦЖТ_Заголовок_Структурный (вне содержания)",
@@ -110,6 +188,12 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Контрольный лист",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
         "section_path": []
       },
@@ -132,9 +216,164 @@
     {
       "block_id": "b000004",
       "block_order": 4,
-      "document_zone": "main_body",
+      "document_zone": "control_sheet",
       "block_type": "table",
-      "block_subtype": "raw_table_placeholder",
+      "block_subtype": "raw_table",
+      "table_info": {
+        "table_id": "tbl_0002",
+        "table_index": 2,
+        "rows_count": 4,
+        "cols_count": 4,
+        "header_row_count": 1,
+        "cells_raw": [
+          [
+            {
+              "text": "Дата",
+              "row_index": 0,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Ревизия",
+              "row_index": 0,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Содержание изменения",
+              "row_index": 0,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "ФИО",
+              "row_index": 0,
+              "col_index": 3,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "04.12.2020",
+              "row_index": 1,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "-",
+              "row_index": 1,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Первое издание",
+              "row_index": 1,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Леонтьев М.В.",
+              "row_index": 1,
+              "col_index": 3,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "16.06.2021",
+              "row_index": 2,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "А",
+              "row_index": 2,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Раздел 2 – уточнена область применения. Раздел 3 – приведены нормативные ссылки. Раздел 5 – обновлены нормативные ссылки. Подраздел 6.1, таблица 1 – дополнено «ведущий аудитор», «руководитель (координатор) проекта». Подраздел 6.2 – добавлено «нормативных документов». Подраздел 6.3 – исключена ссылка на Приложение А; добавлена ссылка на Схему взаимодействия процессов QMS-MAP-001; дополнено «ключевые проекты»; приведено требование о необходимости и периодичности аудита проекта. Раздел 7 – дополнено «иных применяемых нормативных документов»; «подготовки» заменено на «компетентности». Раздел 8 – дополнено «руководителя (координатора) проекта»; исключены ссылки на Приложения. Раздел 9 – исключены ссылки на Приложения, дополнено «руководителю (координатору) проекта», «ЗГД по качеству после проверки Отчета об аудите направляет его Генеральному директору». Раздел 10 – дополнено «руководитель (координатор) проекта»; «ведущему аудитору»; исключены ссылки на Приложения; исправлены формулировки. Раздел 11 – добавлена ссылка на карту процесса QMS-MAP-004 Управление внутренними аудитами. Подраздел 12.1 – обновлены ссылки. Приложения А–Е исключены.",
+              "row_index": 2,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Леонтьев М.В.",
+              "row_index": 2,
+              "col_index": 3,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "09.06.2023",
+              "row_index": 3,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "B",
+              "row_index": 3,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Оформление по обновленному шаблону. По тексту формулировка «руководитель (координатор) проекта» заменена на «руководитель проекта»; добавлены ссылки на шаблоны оформления документации аудита. Раздел 6 (таблица 1): скорректирована ответственность. Добавлен подраздел 7.2 Принципы проведения аудита. Подраздел 7.3: добавлено указание о планировании аудитов проектов. Раздел 8: - добавлено указание, что группа, проводящая аудит, может включать более двух аудиторов; - исключена формулировка «путем включения компетентности по внутренним аудитам в матрицу компетенций». Раздел 9: - информирование о предстоящем аудите возложено на ведущего аудитора; - добавлено указание, что план аудита составляется при проведении аудита без применения вопросника или чек-листа. Раздел 10: - добавлено указание, что аудит проводится в соответствии с вопросником (чек-листом); - добавлено указание, что ведущий аудитор отвечает за внесение несоответствий и областей для улучшения в план мероприятий; - скорректирован срок подготовки отчета об аудите. Раздел 11: скорректирован порядок выполнения действий по результатам аудита. Исключен подраздел 12.3 Иные использованные документы. Введен раздел «Библиография».",
+              "row_index": 3,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Леонтьев М.В.",
+              "row_index": 3,
+              "col_index": 3,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ]
+        ],
+        "cells_normalized": [
+          [
+            "Дата",
+            "Ревизия",
+            "Содержание изменения",
+            "ФИО"
+          ],
+          [
+            "04.12.2020",
+            "-",
+            "Первое издание",
+            "Леонтьев М.В."
+          ],
+          [
+            "16.06.2021",
+            "А",
+            "Раздел 2 – уточнена область применения. Раздел 3 – приведены нормативные ссылки. Раздел 5 – обновлены нормативные ссылки. Подраздел 6.1, таблица 1 – дополнено «ведущий аудитор», «руководитель (координатор) проекта». Подраздел 6.2 – добавлено «нормативных документов». Подраздел 6.3 – исключена ссылка на Приложение А; добавлена ссылка на Схему взаимодействия процессов QMS-MAP-001; дополнено «ключевые проекты»; приведено требование о необходимости и периодичности аудита проекта. Раздел 7 – дополнено «иных применяемых нормативных документов»; «подготовки» заменено на «компетентности». Раздел 8 – дополнено «руководителя (координатора) проекта»; исключены ссылки на Приложения. Раздел 9 – исключены ссылки на Приложения, дополнено «руководителю (координатору) проекта», «ЗГД по качеству после проверки Отчета об аудите направляет его Генеральному директору». Раздел 10 – дополнено «руководитель (координатор) проекта»; «ведущему аудитору»; исключены ссылки на Приложения; исправлены формулировки. Раздел 11 – добавлена ссылка на карту процесса QMS-MAP-004 Управление внутренними аудитами. Подраздел 12.1 – обновлены ссылки. Приложения А–Е исключены.",
+            "Леонтьев М.В."
+          ],
+          [
+            "09.06.2023",
+            "B",
+            "Оформление по обновленному шаблону. По тексту формулировка «руководитель (координатор) проекта» заменена на «руководитель проекта»; добавлены ссылки на шаблоны оформления документации аудита. Раздел 6 (таблица 1): скорректирована ответственность. Добавлен подраздел 7.2 Принципы проведения аудита. Подраздел 7.3: добавлено указание о планировании аудитов проектов. Раздел 8: - добавлено указание, что группа, проводящая аудит, может включать более двух аудиторов; - исключена формулировка «путем включения компетентности по внутренним аудитам в матрицу компетенций». Раздел 9: - информирование о предстоящем аудите возложено на ведущего аудитора; - добавлено указание, что план аудита составляется при проведении аудита без применения вопросника или чек-листа. Раздел 10: - добавлено указание, что аудит проводится в соответствии с вопросником (чек-листом); - добавлено указание, что ведущий аудитор отвечает за внесение несоответствий и областей для улучшения в план мероприятий; - скорректирован срок подготовки отчета об аудите. Раздел 11: скорректирован порядок выполнения действий по результатам аудита. Исключен подраздел 12.3 Иные использованные документы. Введен раздел «Библиография».",
+            "Леонтьев М.В."
+          ]
+        ]
+      },
       "section_context": {
         "section_path": []
       },
@@ -157,7 +396,7 @@
     {
       "block_id": "b000005",
       "block_order": 5,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -190,7 +429,7 @@
     {
       "block_id": "b000006",
       "block_order": 6,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -223,7 +462,7 @@
     {
       "block_id": "b000007",
       "block_order": 7,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -256,7 +495,7 @@
     {
       "block_id": "b000008",
       "block_order": 8,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -289,7 +528,7 @@
     {
       "block_id": "b000009",
       "block_order": 9,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -322,7 +561,7 @@
     {
       "block_id": "b000010",
       "block_order": 10,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -355,7 +594,7 @@
     {
       "block_id": "b000011",
       "block_order": 11,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -388,7 +627,7 @@
     {
       "block_id": "b000012",
       "block_order": 12,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -421,7 +660,7 @@
     {
       "block_id": "b000013",
       "block_order": 13,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -454,7 +693,7 @@
     {
       "block_id": "b000014",
       "block_order": 14,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -487,7 +726,7 @@
     {
       "block_id": "b000015",
       "block_order": 15,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -520,9 +759,518 @@
     {
       "block_id": "b000016",
       "block_order": 16,
-      "document_zone": "main_body",
+      "document_zone": "control_sheet",
       "block_type": "table",
-      "block_subtype": "raw_table_placeholder",
+      "block_subtype": "raw_table",
+      "table_info": {
+        "table_id": "tbl_0003",
+        "table_index": 3,
+        "rows_count": 12,
+        "cols_count": 8,
+        "header_row_count": 1,
+        "cells_raw": [
+          [
+            {
+              "text": "Внешняя рассылка",
+              "row_index": 0,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 8
+            }
+          ],
+          [
+            {
+              "text": "Разрешена",
+              "row_index": 1,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Не разрешена",
+              "row_index": 1,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 4
+            }
+          ],
+          [
+            {
+              "text": "Функция",
+              "row_index": 2,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "ФИО",
+              "row_index": 2,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "Должность",
+              "row_index": 2,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Подпись",
+              "row_index": 2,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Дата",
+              "row_index": 2,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Разработал",
+              "row_index": 3,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Леонтьев М. В.",
+              "row_index": 3,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "ЗГД по качеству – начальник отдела качества",
+              "row_index": 3,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 3,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "09.06.2023",
+              "row_index": 3,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 4,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Галахов А. Н.",
+              "row_index": 4,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "Главный конструктор по подвижному составу",
+              "row_index": 4,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 4,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 4,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 5,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Загитов Э. Д.",
+              "row_index": 5,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "Главный конструктор по инфраструктуре",
+              "row_index": 5,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 5,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 5,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 6,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Савчук А. А.",
+              "row_index": 6,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "ЗГД по перспективным проектам",
+              "row_index": 6,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 6,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 6,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 7,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Михайлов Е. А.",
+              "row_index": 7,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "ЗГД по управлению проектами и работе с поставщиками",
+              "row_index": 7,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 7,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 7,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 8,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Полевко И. Б.",
+              "row_index": 8,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "ЗГД по ИТ – начальник отдела ИТ",
+              "row_index": 8,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 8,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 8,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 9,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Ермолаева Ю. И.",
+              "row_index": 9,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "ЗГД по управлению персоналом – начальник отдела управления персоналом",
+              "row_index": 9,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 9,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 9,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Согласовано",
+              "row_index": 10,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Кудряшов Д. Н.",
+              "row_index": 10,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "ЗГД по финансам –начальник финансового отдела",
+              "row_index": 10,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 10,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 10,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Утвердил",
+              "row_index": 11,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 2
+            },
+            {
+              "text": "Кирейцев А. А.",
+              "row_index": 11,
+              "col_index": 2,
+              "row_span": 1,
+              "col_span": 3
+            },
+            {
+              "text": "Генеральный директор",
+              "row_index": 11,
+              "col_index": 5,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 11,
+              "col_index": 6,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "row_index": 11,
+              "col_index": 7,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ]
+        ],
+        "cells_normalized": [
+          [
+            "Внешняя рассылка",
+            "Внешняя рассылка",
+            "Внешняя рассылка",
+            "Внешняя рассылка",
+            "Внешняя рассылка",
+            "Внешняя рассылка",
+            "Внешняя рассылка",
+            "Внешняя рассылка"
+          ],
+          [
+            "Разрешена",
+            "Разрешена",
+            "Не разрешена",
+            "Не разрешена",
+            "Не разрешена",
+            "Не разрешена",
+            null,
+            null
+          ],
+          [
+            "Функция",
+            "Функция",
+            "ФИО",
+            "ФИО",
+            "ФИО",
+            "Должность",
+            "Подпись",
+            "Дата"
+          ],
+          [
+            "Разработал",
+            "Разработал",
+            "Леонтьев М. В.",
+            "Леонтьев М. В.",
+            "Леонтьев М. В.",
+            "ЗГД по качеству – начальник отдела качества",
+            null,
+            "09.06.2023"
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Галахов А. Н.",
+            "Галахов А. Н.",
+            "Галахов А. Н.",
+            "Главный конструктор по подвижному составу",
+            null,
+            null
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Загитов Э. Д.",
+            "Загитов Э. Д.",
+            "Загитов Э. Д.",
+            "Главный конструктор по инфраструктуре",
+            null,
+            null
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Савчук А. А.",
+            "Савчук А. А.",
+            "Савчук А. А.",
+            "ЗГД по перспективным проектам",
+            null,
+            null
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Михайлов Е. А.",
+            "Михайлов Е. А.",
+            "Михайлов Е. А.",
+            "ЗГД по управлению проектами и работе с поставщиками",
+            null,
+            null
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Полевко И. Б.",
+            "Полевко И. Б.",
+            "Полевко И. Б.",
+            "ЗГД по ИТ – начальник отдела ИТ",
+            null,
+            null
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Ермолаева Ю. И.",
+            "Ермолаева Ю. И.",
+            "Ермолаева Ю. И.",
+            "ЗГД по управлению персоналом – начальник отдела управления персоналом",
+            null,
+            null
+          ],
+          [
+            "Согласовано",
+            "Согласовано",
+            "Кудряшов Д. Н.",
+            "Кудряшов Д. Н.",
+            "Кудряшов Д. Н.",
+            "ЗГД по финансам –начальник финансового отдела",
+            null,
+            null
+          ],
+          [
+            "Утвердил",
+            "Утвердил",
+            "Кирейцев А. А.",
+            "Кирейцев А. А.",
+            "Кирейцев А. А.",
+            "Генеральный директор",
+            null,
+            null
+          ]
+        ]
+      },
       "section_context": {
         "section_path": []
       },
@@ -545,7 +1293,7 @@
     {
       "block_id": "b000017",
       "block_order": 17,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -578,7 +1326,7 @@
     {
       "block_id": "b000018",
       "block_order": 18,
-      "document_zone": "unknown_zone",
+      "document_zone": "control_sheet",
       "block_type": "empty",
       "raw_text": "",
       "normalized_text": "",
@@ -612,8 +1360,8 @@
       "block_id": "b000019",
       "block_order": 19,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Назначение ",
       "normalized_text": "Назначение",
       "source_style": "Heading 1",
@@ -623,8 +1371,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Назначение",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_19",
+        "section_title": "Назначение",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_19"
+        ]
       },
       "source_location": {
         "paragraph_index": 16
@@ -658,7 +1417,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_19",
+        "section_title": "Назначение",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_19"
+        ]
       },
       "source_location": {
         "paragraph_index": 17
@@ -680,8 +1444,8 @@
       "block_id": "b000021",
       "block_order": 21,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Область применения",
       "normalized_text": "Область применения",
       "source_style": "Heading 1",
@@ -691,8 +1455,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Область применения",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_21",
+        "section_title": "Область применения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_21"
+        ]
       },
       "source_location": {
         "paragraph_index": 18
@@ -726,7 +1501,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_21",
+        "section_title": "Область применения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_21"
+        ]
       },
       "source_location": {
         "paragraph_index": 19
@@ -748,8 +1528,8 @@
       "block_id": "b000023",
       "block_order": 23,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Термины и определения",
       "normalized_text": "Термины и определения",
       "source_style": "Heading 1",
@@ -759,8 +1539,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Термины и определения",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 20
@@ -794,7 +1585,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 21
@@ -828,7 +1624,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 22
@@ -862,7 +1663,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 23
@@ -896,7 +1702,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 24
@@ -930,7 +1741,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 25
@@ -964,7 +1780,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 26
@@ -998,7 +1819,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 27
@@ -1032,7 +1858,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 28
@@ -1066,7 +1897,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 29
@@ -1100,7 +1936,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 30
@@ -1134,7 +1975,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 31
@@ -1168,7 +2014,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 32
@@ -1202,7 +2053,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 33
@@ -1236,7 +2092,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 34
@@ -1270,7 +2131,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_23",
+        "section_title": "Термины и определения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_23"
+        ]
       },
       "source_location": {
         "paragraph_index": 35
@@ -1292,8 +2158,8 @@
       "block_id": "b000039",
       "block_order": 39,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Список сокращений",
       "normalized_text": "Список сокращений",
       "source_style": "Heading 1",
@@ -1303,8 +2169,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Список сокращений",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_39",
+        "section_title": "Список сокращений",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_39"
+        ]
       },
       "source_location": {
         "paragraph_index": 36
@@ -1338,7 +2215,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_39",
+        "section_title": "Список сокращений",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_39"
+        ]
       },
       "source_location": {
         "paragraph_index": 37
@@ -1361,9 +2243,85 @@
       "block_order": 41,
       "document_zone": "main_body",
       "block_type": "table",
-      "block_subtype": "raw_table_placeholder",
+      "block_subtype": "raw_table",
+      "table_info": {
+        "table_id": "tbl_0004",
+        "table_index": 4,
+        "rows_count": 3,
+        "cols_count": 2,
+        "header_row_count": 1,
+        "cells_raw": [
+          [
+            {
+              "text": "ЗГД",
+              "row_index": 0,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Заместитель генерального директора",
+              "row_index": 0,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "ЗГД по качеству",
+              "row_index": 1,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Заместитель генерального директора по качеству – начальник отдела качества",
+              "row_index": 1,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "СМК",
+              "row_index": 2,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Система менеджмента качества",
+              "row_index": 2,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ]
+        ],
+        "cells_normalized": [
+          [
+            "ЗГД",
+            "Заместитель генерального директора"
+          ],
+          [
+            "ЗГД по качеству",
+            "Заместитель генерального директора по качеству – начальник отдела качества"
+          ],
+          [
+            "СМК",
+            "Система менеджмента качества"
+          ]
+        ]
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_39",
+        "section_title": "Список сокращений",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_39"
+        ]
       },
       "source_location": {
         "table_index": 4
@@ -1385,8 +2343,8 @@
       "block_id": "b000042",
       "block_order": 42,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Нормативные ссылки",
       "normalized_text": "Нормативные ссылки",
       "source_style": "Heading 1",
@@ -1396,8 +2354,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Нормативные ссылки",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_42",
+        "section_title": "Нормативные ссылки",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_42"
+        ]
       },
       "source_location": {
         "paragraph_index": 38
@@ -1431,7 +2400,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_42",
+        "section_title": "Нормативные ссылки",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_42"
+        ]
       },
       "source_location": {
         "paragraph_index": 39
@@ -1454,9 +2428,85 @@
       "block_order": 44,
       "document_zone": "main_body",
       "block_type": "table",
-      "block_subtype": "raw_table_placeholder",
+      "block_subtype": "raw_table",
+      "table_info": {
+        "table_id": "tbl_0005",
+        "table_index": 5,
+        "rows_count": 3,
+        "cols_count": 2,
+        "header_row_count": 1,
+        "cells_raw": [
+          [
+            {
+              "text": "ГОСТ Р ИСО 9000-2015",
+              "row_index": 0,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Системы менеджмента качества. Основные положения и словарь (Издание с поправкой)",
+              "row_index": 0,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "ГОСТ Р ИСО 19011-2021",
+              "row_index": 1,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Оценка соответствия. Руководящие указания по проведению аудита систем менеджмента (Переиздание)",
+              "row_index": 1,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "ГОСТ Р 55568-2013",
+              "row_index": 2,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Оценка соответствия. Порядок сертификации систем менеджмента качества и систем экологического менеджмента (Переиздание)",
+              "row_index": 2,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ]
+        ],
+        "cells_normalized": [
+          [
+            "ГОСТ Р ИСО 9000-2015",
+            "Системы менеджмента качества. Основные положения и словарь (Издание с поправкой)"
+          ],
+          [
+            "ГОСТ Р ИСО 19011-2021",
+            "Оценка соответствия. Руководящие указания по проведению аудита систем менеджмента (Переиздание)"
+          ],
+          [
+            "ГОСТ Р 55568-2013",
+            "Оценка соответствия. Порядок сертификации систем менеджмента качества и систем экологического менеджмента (Переиздание)"
+          ]
+        ]
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_42",
+        "section_title": "Нормативные ссылки",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_42"
+        ]
       },
       "source_location": {
         "table_index": 5
@@ -1478,8 +2528,8 @@
       "block_id": "b000045",
       "block_order": 45,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Ответственность",
       "normalized_text": "Ответственность",
       "source_style": "Heading 1",
@@ -1489,8 +2539,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Ответственность",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_45",
+        "section_title": "Ответственность",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_45"
+        ]
       },
       "source_location": {
         "paragraph_index": 40
@@ -1524,7 +2585,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_45",
+        "section_title": "Ответственность",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_45"
+        ]
       },
       "source_location": {
         "paragraph_index": 41
@@ -1558,7 +2624,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_45",
+        "section_title": "Ответственность",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_45"
+        ]
       },
       "source_location": {
         "paragraph_index": 42
@@ -1581,9 +2652,105 @@
       "block_order": 48,
       "document_zone": "main_body",
       "block_type": "table",
-      "block_subtype": "raw_table_placeholder",
+      "block_subtype": "raw_table",
+      "table_info": {
+        "table_id": "tbl_0006",
+        "table_index": 6,
+        "rows_count": 4,
+        "cols_count": 2,
+        "header_row_count": 1,
+        "cells_raw": [
+          [
+            {
+              "text": "Ответственный",
+              "row_index": 0,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "Описание ответственности",
+              "row_index": 0,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "ЗГД по качеству",
+              "row_index": 1,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "подготовка программы аудитов; планирование и организация аудитов; назначение внутренних аудиторов; ведение списка внутренних аудиторов; оценка результативности внутренних аудитов; информирование высшего руководства",
+              "row_index": 1,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Ведущий аудитор / аудитор",
+              "row_index": 2,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "подготовка аудита; информирование проверяемого подразделения / владельца процесса об аудите, его целях и области; проведение аудита, сбор объективных свидетельств; подготовка отчета об аудите; проверка выполнения мероприятий по итогам аудита, оценка результативности коррекций и корректирующих действий по несоответствиям",
+              "row_index": 2,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ],
+          [
+            {
+              "text": "Руководитель проверяемого подразделения / владелец процесса / руководитель проекта",
+              "row_index": 3,
+              "col_index": 0,
+              "row_span": 1,
+              "col_span": 1
+            },
+            {
+              "text": "информирование подчиненных сотрудников об аудите; назначение ответственного сотрудника для сопровождения аудита; обеспечение доступа к необходимой в ходе аудита документированной информации; анализ результатов аудита и подготовка плана мероприятий; выполнение коррекций в случае обнаружения несоответствий в ходе аудита; анализ причин несоответствий, выработка и внедрение корректирующих мероприятий",
+              "row_index": 3,
+              "col_index": 1,
+              "row_span": 1,
+              "col_span": 1
+            }
+          ]
+        ],
+        "cells_normalized": [
+          [
+            "Ответственный",
+            "Описание ответственности"
+          ],
+          [
+            "ЗГД по качеству",
+            "подготовка программы аудитов; планирование и организация аудитов; назначение внутренних аудиторов; ведение списка внутренних аудиторов; оценка результативности внутренних аудитов; информирование высшего руководства"
+          ],
+          [
+            "Ведущий аудитор / аудитор",
+            "подготовка аудита; информирование проверяемого подразделения / владельца процесса об аудите, его целях и области; проведение аудита, сбор объективных свидетельств; подготовка отчета об аудите; проверка выполнения мероприятий по итогам аудита, оценка результативности коррекций и корректирующих действий по несоответствиям"
+          ],
+          [
+            "Руководитель проверяемого подразделения / владелец процесса / руководитель проекта",
+            "информирование подчиненных сотрудников об аудите; назначение ответственного сотрудника для сопровождения аудита; обеспечение доступа к необходимой в ходе аудита документированной информации; анализ результатов аудита и подготовка плана мероприятий; выполнение коррекций в случае обнаружения несоответствий в ходе аудита; анализ причин несоответствий, выработка и внедрение корректирующих мероприятий"
+          ]
+        ]
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_45",
+        "section_title": "Ответственность",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_45"
+        ]
       },
       "source_location": {
         "table_index": 6
@@ -1605,8 +2772,8 @@
       "block_id": "b000049",
       "block_order": 49,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Общие требования",
       "normalized_text": "Общие требования",
       "source_style": "Heading 1",
@@ -1616,8 +2783,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Общие требования",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_49",
+        "section_title": "Общие требования",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_49"
+        ]
       },
       "source_location": {
         "paragraph_index": 43
@@ -1639,8 +2817,8 @@
       "block_id": "b000050",
       "block_order": 50,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Цели внутреннего аудита",
       "normalized_text": "Цели внутреннего аудита",
       "source_style": "Heading 2",
@@ -1650,8 +2828,21 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 2,
+        "heading_title": "Цели внутреннего аудита",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_50",
+        "section_title": "Цели внутреннего аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_50"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 44
@@ -1685,7 +2876,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_50",
+        "section_title": "Цели внутреннего аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_50"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 45
@@ -1725,7 +2923,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_50",
+        "section_title": "Цели внутреннего аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_50"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 46
@@ -1765,7 +2970,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_50",
+        "section_title": "Цели внутреннего аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_50"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 47
@@ -1805,7 +3017,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_50",
+        "section_title": "Цели внутреннего аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_50"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 48
@@ -1827,8 +3046,8 @@
       "block_id": "b000055",
       "block_order": 55,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Принципы проведения аудита",
       "normalized_text": "Принципы проведения аудита",
       "source_style": "Heading 2",
@@ -1838,8 +3057,21 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 2,
+        "heading_title": "Принципы проведения аудита",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 49
@@ -1873,7 +3105,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 50
@@ -1913,7 +3152,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 51
@@ -1953,7 +3199,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 52
@@ -1993,7 +3246,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 53
@@ -2033,7 +3293,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 54
@@ -2073,7 +3340,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 55
@@ -2113,7 +3387,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 56
@@ -2153,7 +3434,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_55",
+        "section_title": "Принципы проведения аудита",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_55"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 57
@@ -2175,8 +3463,8 @@
       "block_id": "b000064",
       "block_order": 64,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Планирование внутренних аудитов",
       "normalized_text": "Планирование внутренних аудитов",
       "source_style": "Heading 2",
@@ -2186,8 +3474,21 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 2,
+        "heading_title": "Планирование внутренних аудитов",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 58
@@ -2221,7 +3522,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 59
@@ -2255,7 +3563,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 60
@@ -2289,7 +3604,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 61
@@ -2323,7 +3645,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 62
@@ -2357,7 +3686,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 63
@@ -2391,7 +3727,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 64
@@ -2425,7 +3768,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 65
@@ -2459,7 +3809,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 66
@@ -2499,7 +3856,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 67
@@ -2539,7 +3903,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 68
@@ -2579,7 +3950,14 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 69
@@ -2613,7 +3991,14 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_64",
+        "section_title": "Планирование внутренних аудитов",
+        "section_level": 2,
+        "section_path": [
+          "UNNUMBERED_49",
+          "UNNUMBERED_64"
+        ],
+        "parent_section_id": "UNNUMBERED_49"
       },
       "source_location": {
         "paragraph_index": 70
@@ -2635,8 +4020,8 @@
       "block_id": "b000077",
       "block_order": 77,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Требования к аудиторам",
       "normalized_text": "Требования к аудиторам",
       "source_style": "Heading 1",
@@ -2646,8 +4031,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Требования к аудиторам",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 71
@@ -2681,7 +4077,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 72
@@ -2715,7 +4116,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 73
@@ -2755,7 +4161,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 74
@@ -2795,7 +4206,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 75
@@ -2835,7 +4251,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 76
@@ -2875,7 +4296,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 77
@@ -2909,7 +4335,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 78
@@ -2943,7 +4374,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_77",
+        "section_title": "Требования к аудиторам",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_77"
+        ]
       },
       "source_location": {
         "paragraph_index": 79
@@ -2965,8 +4401,8 @@
       "block_id": "b000086",
       "block_order": 86,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Подготовка аудита",
       "normalized_text": "Подготовка аудита",
       "source_style": "Heading 1",
@@ -2976,8 +4412,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Подготовка аудита",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_86",
+        "section_title": "Подготовка аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_86"
+        ]
       },
       "source_location": {
         "paragraph_index": 80
@@ -3011,7 +4458,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_86",
+        "section_title": "Подготовка аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_86"
+        ]
       },
       "source_location": {
         "paragraph_index": 81
@@ -3045,7 +4497,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_86",
+        "section_title": "Подготовка аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_86"
+        ]
       },
       "source_location": {
         "paragraph_index": 82
@@ -3079,7 +4536,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_86",
+        "section_title": "Подготовка аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_86"
+        ]
       },
       "source_location": {
         "paragraph_index": 83
@@ -3113,7 +4575,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_86",
+        "section_title": "Подготовка аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_86"
+        ]
       },
       "source_location": {
         "paragraph_index": 84
@@ -3135,8 +4602,8 @@
       "block_id": "b000091",
       "block_order": 91,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Проведение аудита",
       "normalized_text": "Проведение аудита",
       "source_style": "Heading 1",
@@ -3146,8 +4613,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Проведение аудита",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 85
@@ -3181,7 +4659,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 86
@@ -3215,7 +4698,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 87
@@ -3255,7 +4743,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 88
@@ -3295,7 +4788,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 89
@@ -3335,7 +4833,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 90
@@ -3375,7 +4878,12 @@
         "detection_method": "style_registry"
       },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 91
@@ -3409,7 +4917,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 92
@@ -3443,7 +4956,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 93
@@ -3477,7 +4995,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 94
@@ -3499,7 +5022,7 @@
       "block_id": "b000101",
       "block_order": 101,
       "document_zone": "main_body",
-      "block_type": "note_like",
+      "block_type": "note_text",
       "block_subtype": "note_text",
       "raw_text": "Примечание – Допускается использование иной формы отчета для аудита проекта.",
       "normalized_text": "Примечание – Допускается использование иной формы отчета для аудита проекта.",
@@ -3511,7 +5034,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 95
@@ -3527,6 +5055,11 @@
         "is_generated_toc_entry": false,
         "is_header_footer_artifact": false,
         "is_deletable_template_content": false
+      },
+      "metadata": {
+        "note_group_id": null,
+        "is_orphan": true,
+        "note_role": "text"
       }
     },
     {
@@ -3545,7 +5078,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 96
@@ -3579,7 +5117,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_91",
+        "section_title": "Проведение аудита",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_91"
+        ]
       },
       "source_location": {
         "paragraph_index": 97
@@ -3601,8 +5144,8 @@
       "block_id": "b000104",
       "block_order": 104,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Анализ результатов аудита и корректирующие действия",
       "normalized_text": "Анализ результатов аудита и корректирующие действия",
       "source_style": "Heading 1",
@@ -3612,8 +5155,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Анализ результатов аудита и корректирующие действия",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 98
@@ -3647,7 +5201,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 99
@@ -3681,7 +5240,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 100
@@ -3715,7 +5279,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 101
@@ -3749,7 +5318,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 102
@@ -3783,7 +5357,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 103
@@ -3817,7 +5396,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_104",
+        "section_title": "Анализ результатов аудита и корректирующие действия",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_104"
+        ]
       },
       "source_location": {
         "paragraph_index": 104
@@ -3839,8 +5423,8 @@
       "block_id": "b000111",
       "block_order": 111,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Дополнительные положения",
       "normalized_text": "Дополнительные положения",
       "source_style": "Heading 1",
@@ -3850,8 +5434,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Дополнительные положения",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_111",
+        "section_title": "Дополнительные положения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_111"
+        ]
       },
       "source_location": {
         "paragraph_index": 105
@@ -3885,7 +5480,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_111",
+        "section_title": "Дополнительные положения",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_111"
+        ]
       },
       "source_location": {
         "paragraph_index": 106
@@ -3907,8 +5507,8 @@
       "block_id": "b000113",
       "block_order": 113,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Шаблоны записей",
       "normalized_text": "Шаблоны записей",
       "source_style": "Heading 1",
@@ -3918,8 +5518,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Шаблоны записей",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_113",
+        "section_title": "Шаблоны записей",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_113"
+        ]
       },
       "source_location": {
         "paragraph_index": 107
@@ -3953,7 +5564,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_113",
+        "section_title": "Шаблоны записей",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_113"
+        ]
       },
       "source_location": {
         "paragraph_index": 108
@@ -3987,7 +5603,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_113",
+        "section_title": "Шаблоны записей",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_113"
+        ]
       },
       "source_location": {
         "paragraph_index": 109
@@ -4021,7 +5642,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_113",
+        "section_title": "Шаблоны записей",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_113"
+        ]
       },
       "source_location": {
         "paragraph_index": 110
@@ -4055,7 +5681,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_113",
+        "section_title": "Шаблоны записей",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_113"
+        ]
       },
       "source_location": {
         "paragraph_index": 111
@@ -4089,7 +5720,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_113",
+        "section_title": "Шаблоны записей",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_113"
+        ]
       },
       "source_location": {
         "paragraph_index": 112
@@ -4144,8 +5780,8 @@
       "block_id": "b000120",
       "block_order": 120,
       "document_zone": "main_body",
-      "block_type": "paragraph",
-      "block_subtype": "plain_paragraph_fallback",
+      "block_type": "heading",
+      "block_subtype": "style_heading_fallback",
       "raw_text": "Библиография",
       "normalized_text": "Библиография",
       "source_style": "0_ИЦЖТ_Заголовок_Структурный",
@@ -4155,8 +5791,19 @@
         "underline": false
       },
       "indent": {},
+      "heading_info": {
+        "heading_level": 1,
+        "heading_title": "Библиография",
+        "detection_method": "style_fallback",
+        "confidence": 0.75
+      },
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_120",
+        "section_title": "Библиография",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_120"
+        ]
       },
       "source_location": {
         "paragraph_index": 114
@@ -4190,7 +5837,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_120",
+        "section_title": "Библиография",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_120"
+        ]
       },
       "source_location": {
         "paragraph_index": 115
@@ -4224,7 +5876,12 @@
       },
       "indent": {},
       "section_context": {
-        "section_path": []
+        "section_id": "UNNUMBERED_120",
+        "section_title": "Библиография",
+        "section_level": 1,
+        "section_path": [
+          "UNNUMBERED_120"
+        ]
       },
       "source_location": {
         "paragraph_index": 116

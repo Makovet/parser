@@ -1,0 +1,18 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Coverage artifacts
+.coverage
+htmlcov/
+
+# Packaging artifacts
+*.egg-info/
+
+# Local parser outputs
+/data/output/
+/tmp/
